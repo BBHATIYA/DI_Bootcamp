@@ -1,0 +1,75 @@
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wraper{
+    text-align: center;
+    
+}
+
+.one{
+    display: inline-block;
+    margin: 1.5% 2%;
+}
+
+
+.image{
+    position: relative;
+}
+.new {
+    background-color: gray;
+    left: 4px;
+    font-weight: bold;
+}
+
+.image div{
+    position: absolute;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    top: 6px;
+    padding-top: 14px;
+    color: white;
+}
+
+.percent{
+    background-color: red;
+    right: 10px;
+    font-weight: bold;
+}
+
+img{
+    height: 300px;
+    width: 230px;
+}
+
+/* Title and price section */
+
+.title, .price {
+    margin: .4em;
+    
+}
+
+.price{
+    color: gray;
+}
+
+span{
+    text-decoration: line-through;
+    font-size: 0.7em;
+}
+
+.button > button{
+    margin-top: 2em;
+    padding: 0.4em 1.5em;
+    background-color: white;
+    color: gray;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}

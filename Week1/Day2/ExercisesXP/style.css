@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Section */
+.navbar{
+    background-color: black;
+    position: relative;
+}
+
+li{
+    display: inline-block;
+    list-style: none;
+    color: white;
+    padding: 1em;
+}
+
+.fa-solid{
+    font-size: 1.8em;
+}
+
+.product{
+    position: absolute;
+    right: 2%;
+    top: 10%;
+}
+
+/* Footer Section */
+
+footer{
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
