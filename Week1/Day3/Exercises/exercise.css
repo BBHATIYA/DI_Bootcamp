@@ -1,0 +1,33 @@
+.container{
+    border: 2px solid black;
+    display: flex;
+    height: 400px;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.box{
+    background-color: lightgray;
+    font-size: 2em;
+    text-align: center;
+    
+}
+
+.one{
+    align-self: stretch;
+    flex-basis: 50px;
+}
+
+.tow {
+    flex-basis: 150px;
+    width: 75%;
+    
+}
+
+.three {
+    align-self: stretch;
+    flex-basis: 50px;
+}

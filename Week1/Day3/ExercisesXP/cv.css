@@ -1,0 +1,77 @@
+body{
+    margin: 10%;
+    font-family: 'Assistant', sans-serif;
+    line-height: 1.5;
+}
+
+/* Grid CSS */
+.main-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(1fr, 5);
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1rem 1rem;
+    padding: 3em;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.sidebar{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    grid-row: 1/span 6;
+    background-color: #F8EDE3;
+}
+
+.education{
+    grid-row: 2/span 2;
+}
+.experience{
+    grid-row: 5/span 2;
+}
+
+/* Sidebar Section */
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.image, .phone-email, .social-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image{
+    height: 300px;
+}
+
+h1{
+    font-size: 2em;
+}
+
+.phone-email, .image{
+    border-bottom: 2px solid gray;
+}
+img{
+    border-radius: 50%;
+    height: 50%;
+}
+
+.social-icon div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+
+i{
+    margin-top: 15%;
+    color: gray;
+}
+
+.social-icon{
+    width: 70%;
+}

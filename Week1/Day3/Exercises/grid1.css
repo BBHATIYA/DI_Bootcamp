@@ -1,0 +1,25 @@
+.container{
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(1fr,4);
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 2rem 3rem;
+    padding: 2em;
+}
+
+div {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.redbox{
+    background-color: red;
+}
+
+.bluebox{
+    background-color: blue;
+}
+.yellowbox{
+    background-color: yellow;
+    grid-column: 1/span 2;
+}
