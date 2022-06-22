@@ -1,0 +1,9 @@
+img{
+    width: 160px;
+    height: 120px;
+    padding: 5px;
+}
+
+.image2, .image3{
+    margin-left: 50px;
+}
