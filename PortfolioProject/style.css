@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+
+/* Header stars */
+header {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("headerback.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    
+}
+.fad-out{
+    height: 100%;
+    width: 100%;
+    background-color: #b8c0c199;
+}
+
+.welcome-txt{
+    position: absolute;
+    top: 40%;
+    left: 15%;
+}
+/* Header ends */
+
+/* About me starts */
+.face-image{
+    /* background-image: url(./face1.jpg);
+    height: 45vh;
+    width: 20vw;
+    background-size: cover; */
+    border-radius: 50%;
+}
+
+.vertical-line{
+    height: 200px;
+    color: gray;
+}
+/* About me ends */
+
+.portfolio-image img{
+    height: 20vh;
+    width: 20vw;
+}
+
+/* Blog starts */
+.blog-images img{
+    height: 25vh;
+}
+
+small a{
+    text-decoration: none;
+}
