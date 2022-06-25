@@ -1,6 +1,25 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+h1, h2 , .titles{
+    /* color: #FF5B00; */
+    color: #FF5B00;
+}
+
+/* Navbar */
+
+.navbar{
+    background-color: #FF5B00;
+}
+
+
+
 
 /* Header stars */
 header {
@@ -15,7 +34,7 @@ header {
 .fad-out{
     height: 100%;
     width: 100%;
-    background-color: #b8c0c199;
+    background-color: #ffffffd2;
 }
 
 .welcome-txt{
@@ -34,22 +53,33 @@ header {
     border-radius: 50%;
 }
 
-.vertical-line{
-    height: 200px;
-    color: gray;
-}
 /* About me ends */
 
-.portfolio-image img{
-    height: 20vh;
-    width: 20vw;
-}
+
 
 /* Blog starts */
 .blog-images img{
     height: 25vh;
+
 }
 
 small a{
     text-decoration: none;
 }
+
+.btn-color{
+    background-color: #FF5B00;
+    border: none;
+    color: #ffffff;
+}
+i{
+    color: #FF5B00;
+}
+
+.text-end {
+     /* background: linear-gradient(to bottom, red 0%, red 50%, red 50%, white 50%, white 100%);
+     W3C */
+
+    background: linear-gradient(to left bottom, #FF5B00 80%, transparent 35%);
+    color: wheat;
+ }
