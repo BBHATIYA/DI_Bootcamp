@@ -123,5 +123,17 @@ console.log(building["numberOfRoomsAndRent"]["dan"][1]);// here is increase Dan'
 // Using a for in loop, console.log the keys of the object.
 // Using a for in loop, console.log the values of the object.
 
+let family = {
+    familyMembers : 6,
+    kidsInFamily : 3,
+    fName:"Bhatiya"
+}
+
+for (let key in family){
+    // console.log(key); //display key of the object.
+    console.log(family[key]); // display values of the object. 
+}
+
+
 
 
