@@ -20,5 +20,8 @@ let wordBad = sentence.indexOf("bad") //21
  
 if (wordBad > wordNot) {
    console.log(`${sentence.substring(0, wordNot)}good${sentence.substring((wordBad+3), sentence.length)}`);
+   // sentence.replace("not","").replace("bad","good").replace("  "," ");
+   // sentence.splice(wordNot-1,wordBad-wordNot,"Good)")
+   //another build in function
 }
 
