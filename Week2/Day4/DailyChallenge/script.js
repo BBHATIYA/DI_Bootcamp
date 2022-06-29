@@ -21,3 +21,5 @@ for (let i = 0; i < usingSplit.length; i++){
     }
     console.log("*" +usingSplit[i]+ +"\n ".repeat(usingSplit[i].length)+"*");
   }
+
+  //didn't succeed to print as per instruction
