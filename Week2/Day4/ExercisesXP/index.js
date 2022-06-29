@@ -165,19 +165,20 @@ function myBill(){
 // The hotel costs $140 per night. The function should return the total price of the hotel.
 
 
-function hotelCost() {
-    let userNights = 0;
+function hotelCost(userNights) {
+    let totalNightCost = 0;
+    // let userNights = 0;
     
-    do {
-            userNights = prompt("How many night would you like to stay?")
-            userNights = Number(userNights);
-    } while (isNaN(userNights) ||userNights == 0);
+    // do {
+    //         userNights = prompt("How many night would you like to stay?")
+    //         userNights = Number(userNights);
+    // } while (isNaN(userNights) ||userNights == 0);
     totalNightCost = userNights*140;
-    // console.log(totalNightCost);
+    console.log(`Your total is $${totalNightCost}`);
     return totalNightCost
 }
-// let final =hotelCost();
-// console.log(final)
+// hotelCost();
+
 
 // Define a function called planeRideCost().
 // It should ask the user for their destination.
@@ -187,22 +188,23 @@ function hotelCost() {
 // “Paris” : 220$
 // All other destination : 300$
 
-function planeRideCost(){
-    let destination = "";
-    let price = 0;
-    do {
-        destination = prompt("where do you want to fly?").toLowerCase()
+function planeRideCost(destination){
+    // let destination = "";
+    let priceOfRide = 0;
+    // do {
+    //     destination = prompt("where do you want to fly?").toLowerCase()
 
-    } while (!isNaN(destination) || destination =="");
+    // } while (!isNaN(destination) || destination =="");
 
     if(destination === "london"){
-        price = 183;
+        priceOfRide = 183;
     } else if( destination === "paris"){
-        price = 220;
+        priceOfRide = 220;
     } else{
-         price = 300;
+         priceOfRide = 300;
     }
-    console.log(price);
+    console.log(priceOfRide);
+    return priceOfRide;
 }
 // planeRideCost();
 
@@ -214,18 +216,20 @@ function planeRideCost(){
 // The function should return the total price of the car rental.
 
 function rentalCarCost(){
-      let numberOfDays = 0;
+    //   let numDays = 0;
+    let carPrice = 0;
     
-    do {
-            numberOfDays = prompt("How many night would you like to stay?")
-            numberOfDays = Number(numberOfDays);
-    } while (isNaN(numberOfDays) ||numberOfDays == 0);
-    numberOfDays = numberOfDays*40;
-    if(numberOfDays > 10){
-        let discount = numberOfDays*5/100;
-        numberOfDays -= discount; 
+    // do {
+    //         numDays = prompt("How many night would you like to stay?")
+    //         numDays = Number(numberOfDays);
+    // } while (isNaN(numDays) ||numDays == 0);
+    if(numDays < 11){
+        carPrice = numDays*40;
+    } else {
+        carPrice = numDays*4*95/10
     }
-    console.log(numberOfDays);
+    console.log(carPrice);
+    return carPrice;
 }
 // rentalCarCost();
 
@@ -234,12 +238,39 @@ function rentalCarCost(){
 // Hint: You have to call the functions hotelCost(), planeRideCost() and rentalCarCost() inside the function totalVacationCost().
 
 // Call the function totalVacationCost()
-function totalVacationCost(){
-console.log(hotelCost(), planeRideCost(), rentalCarCost());
-}
 
 // totalVacationCost();
 
 // Bonus: Instead of using a prompt inside the 3 first functions, only use a prompt inside the totalVacationCost() function. You need to change the 3 first functions, accordingly.
 
+function totalVacationCost() {
+//    
+    let userNights = 0;
+    
+    do {
+            userNights = prompt("How many night would you like to stay?")
+            userNights = Number(userNights);
+    } while (isNaN(userNights) ||userNights == 0);
 
+    let a = hotelCost(userNights);
+//
+//
+     do {
+        destination = prompt("where do you want to fly?").toLowerCase()
+
+    } while (!isNaN(destination) || destination =="");
+    
+    let c = planeRideCost(destination);
+//
+//
+    do {
+            numDays = prompt("How many night would you like to stay?")
+            numDays = Number(numDays);
+    } while (isNaN(numDays) ||numDays == 0);
+
+    let b = rentalCarCost(numDays)
+
+    return (a + b + c)
+}
+// totalVacationCost()
+console.log(totalVacationCost());
