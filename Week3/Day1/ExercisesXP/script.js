@@ -13,6 +13,19 @@ changeName.nextElementSibling.lastElementChild.innerText = "Richard";
 // Change each first name of the two <ul>'s to your name.
 let ulChange = document.querySelectorAll('.list')
 
+let d = document.querySelector('.list');
+    console.log(d);
+        let e = d.firstElementChild;
+    e.innerText = "Bhavesh";
+    console.log(e);
+    let f = d.nextElementSibling.firstElementChild;
+    f.innerText = "Bhavesh";
+    console.log(f);
+
+
+
+
+
 //  console.log(ulChange); 
 // Delete the <li> that contains the text node “Sarah”.
 let removeName = document.getElementById('container');
