@@ -24,41 +24,56 @@ beer();
 
 
 
+// Second way to do it 
 
-// let add = 1;
-// let count = 99;
-// while (count > 0) {
-//     // console.log(count + " " + getBottleWord(count) + " of beer on the wall");
-//     console.log(count + " " + getBottleWord(count) + " of beer,");
-//     // console.log("Take _" + takeDown(add) + "_ down, pass it around,");
-//     count = count - 1;
-//     if (count > 0) {
-//         console.log(count + " " + getBottleWord(count) + " of beer on the wall.");
-//     } else {
-//         console.log("No more " + getBottleWord(count) + " of beer on the wall.");
-//     }
-// }
-
-// while( add > 99){
-//   console.log("Take _" + takeDown(add) + "_ down, pass it around,");
-// }
-
-// function getBottleWord(count) {
-//     return count === 1 ? "bottle" : "bottles";
-
-//     // if(count = 1){
-//     //   return bottle;
-//     // } else {
-//     //   return bottles;
-//     // }
-
-// }
-
-// function takeDown(add){
-//  for (let i = 1; i < 99; i+=1){
-//     console.log(i)
+// let bottles;
+// do{
+//   bottles = Number(prompt("How many bottles?"));
+// } while(isNaN(bottles) || bottles < 1);
+// let song = "";
+// for(i=1; bottles > 0; i++){
+//   if(i > bottles){
+//     i = bottles;
 //   }
+//   let itThem = "them";
+//   if(i == 1){
+//     itThem = "it"
+//   }
+//   let numBottles = "bottles";
+//   if(bottles == 1){
+//     numBottles = "bottle";
+//   }
+//   song += `${bottles} ${numBottles} of beer on the wall\n${bottles} ${numBottles} of beer\nTake ${i} down, pass ${itThem} around\n`;
+//   bottles -= i;
+//   if(bottles == 1){
+//     numBottles = "bottle";
+//   }
+//   song += `${bottles} ${numBottles} of beer on the wall\n---------\n`;
 // }
 
-// // takeDown(add);
+// console.log(song);
 
+// Second way to do it
+
+
+
+
+//Ziv solution 
+
+// let bottles = 0;
+// for (let i = 99; i > 0; i -= bottles) {
+//   bottles++;
+//   console.log(`${i} bottles of beer on the wall`);
+//   console.log(`${i} bottles of beer`);
+//   if(i>bottles){
+//     console.log(`Take ${bottles} down, pass it around`);
+//     console.log(`${i-bottles} bottles of beer on the wall`);
+//   }
+//   else{
+//     console.log(`Take ${i} down, pass it around`);
+//     console.log(`0 bottles of beer on the wall`);
+//   }
+//   console.log('#######################################');
+// }
+
+//Ziv solution 
