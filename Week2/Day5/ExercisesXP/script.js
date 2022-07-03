@@ -45,7 +45,7 @@ function compareNumbers(userNumber, computerNumber) {
 
     }
 
-    else if(userNumber < computerNumber) {
+    else if(userNumber < computerNumber) { //////******************** it is not neccessary to do another if here this is the last option so just right else
         // userNumber = Number(prompt("Your number is smaller then the computer's, guess again"))
         alert("too small")
         return true
