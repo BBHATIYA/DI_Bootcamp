@@ -15,7 +15,7 @@ let btn = document.getElementById('submit')
 
 let firstInputs = document.querySelector('[name~=fname]');
 let lastInputs = document.querySelector('[name~=lname]');
-// console.log(firstInputs);
+console.log(firstInputs);
 // console.log(lastInputs);
 
 // When the user submits the form (ie. submit event listener)

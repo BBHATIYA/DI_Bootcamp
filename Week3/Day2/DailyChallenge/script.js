@@ -4,10 +4,35 @@ let libForm = document.forms[0];
 libForm.addEventListener("submit", userInputs);
 
 
+function validateIfEmpty(){
+    let inputs = document.querySelectorAll('input');
+    // console.log(inputs);
+
+    let inputArray = Array.from(inputs);
+    // console.log(inputArray);
+
+    let nounInputs =document.getElementById('noun');
+    let adjectiveInputs =document.getElementById('adjective');
+    let personInputs =document.getElementById('person');
+    let verbInputs =document.getElementById('verb');
+    let placeInputs =document.getElementById('place');
+
+    // let arrayOfInputs = ['nounInputs', 'adjectiveInputs', 'personInputs', 'verbInputs','placeInputs'];
+    
+    // for (let i = 0; i < arrayOfInputs.length; i++) {
+    //     console.log(arrayOfInputs[i]);
+    //     // return arrayOfInputs[i];
+    //             if(inputArray[i].value == ""){}
+        
+    // }
+}
+// let checkInput = validateIfEmpty();
+// console.log(checkInput);
+
 function userInputs(e){
     e.preventDefault();
-    // let nounInputs = document.getElementById('noun');
-    // console.log(nounInputs);
+    
+    
     let nounValue = libForm.elements.noun.value;
     let adjectiveValue = libForm.elements.adjective.value;
     let personValue = libForm.elements.person.value;
@@ -21,4 +46,5 @@ ${nounValue}. I am so ${adjectiveValue} to ${verbValue} in a tent.The place in n
     getSpan.appendChild(text);
 
 }
+
 
