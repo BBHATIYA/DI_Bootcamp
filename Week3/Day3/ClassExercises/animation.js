@@ -22,30 +22,30 @@
 // etc ... until 0
 
 
-// let btn = document.getElementById('button');
+let btn = document.getElementById('button');
 
-// btn.addEventListener("click", lessSecond);
-// let counter = 10;
-// let idInterval;
+btn.addEventListener("click", lessSecond);
+let counter = 10;
+let idInterval;
 
-// function lessSecond(){
-//   idInterval = setInterval(bannerTimer, 1000);
-// }
+function lessSecond(){
+  idInterval = setInterval(bannerTimer, 1000);
+}
 
-// function bannerTimer(){
-//     if(counter == 0){
-//         clearInterval(idInterval)
-//     } else{
-//         let cont = document.getElementById('container');
-//         let p = document.createElement('p');
-//         let text = document.createTextNode(`This is the paragraph ${counter}`)
-//         p.appendChild(text);
-//         cont.appendChild(p);
-//         counter--;
-//     }
+function bannerTimer(){
+    if(counter == 0){
+        clearInterval(idInterval)
+    } else{
+        let cont = document.getElementById('container');
+        let p = document.createElement('p');
+        let text = document.createTextNode(`This is the paragraph ${counter}`)
+        p.appendChild(text);
+        cont.appendChild(p);
+        counter--;
+    }
     
 
-// }
+}
 
 
 let spanSeconds= document.getElementById('spanNumber');
