@@ -5,29 +5,7 @@ let pickedColor;
 let isDrawing = false;
 
 // colors array
-let colors = [
-    "#FF6633",
-    "#FFB399",
-    "#fff81e",
-    "#FF33FF",
-    "#FFFF99",
-    "#E6B333",
-    "#3366E6",
-    "#99FF99",
-    "#B34D4D",
-    "#80B300",
-    "#E6B3B3",
-    "#6680B3",
-    "#9bdcff",
-    "#FF99E6",
-    "#CCFF1A",
-    "#FF1A66",
-    "#33FFCC",
-    "#B366CC",
-    "#4D8000",
-    "#B33300",
-    "#000000"
-];
+let colors = ["#FF6633", "#FFB399", "#fff81e", "#FF33FF", "#FFFF99", "#E6B333", "#3366E6", "#99FF99","#B34D4D","#80B300","#E6B3B3","#6680B3","#9bdcff","#FF99E6","#CCFF1A","#FF1A66","#33FFCC","#B366CC","#4D8000","#B33300","#000000" ];
 
 // functions
 function createBoxes() {
