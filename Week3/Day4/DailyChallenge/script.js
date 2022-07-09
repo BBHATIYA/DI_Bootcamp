@@ -10,33 +10,40 @@
 
 let listTasks = [];
 
-let formItem = document.forms[0];
+let UserInput = document.querySelector("[name~=uinput]");
+// console.log(UserInput);
 
-formItem.addEventListener("submit", addTask);
+let button = document.getElementById("myButton");
+
+button.addEventListener("click", addTask);
 
 function addTask(ev) {
   ev.preventDefault();
+  if (UserInput.value.length !== 0) {
+    let item = document.getElementById("inputText").value;
+    let text = document.createTextNode(item);
+    let label = document.createElement("label");
+    label.classList.add("fa-solid", "fa-xmark");
 
-  let userItem = formItem.elements.inputText.value;
-  listTasks.push(userItem);
-  console.log(listTasks);
+    //   <i class="fa-solid fa-square-x"></i>;
+
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    let newItem = document.createElement("p");
+
+    newItem.appendChild(label);
+    newItem.appendChild(checkbox);
+    newItem.appendChild(text);
+    document.getElementById("listTasks").appendChild(newItem);
+
+    listTasks.push(item);
+    console.log(listTasks);
+  }
+  return clear();
 }
 
-let btndisplay = document.getElementById("myButton");
-btndisplay.addEventListener("click", displayBooks);
-
-function displayBooks() {
-  let div = document.getElementById("listTasks");
-  let ulItem = document.createElement("ul");
-  //   console.log(ul);
-
-  for (let i = 0; i < listTasks.length; i++) {
-    let eachItem = listTasks[i];
-    // console.log(eachItem);
-    let li = document.createElement("li");
-    let text = document.createTextNode(`${eachItem[userItem]}`);
-    li.appendChild(text);
-    ulItem.appendChild(li);
-  }
-  div.appendChild(ulItem);
+function clear() {
+  inputText.value = "";
 }
