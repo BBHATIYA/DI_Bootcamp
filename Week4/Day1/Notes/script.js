@@ -315,3 +315,459 @@ console.log("after the function", computer);
 // // -----------------------
 // // Exercises
 // // -----------------------
+
+
+
+
+
+
+
+
+
+
+// // // --------------------
+// // // --- Functions Declaration
+// // // --------------------
+ 
+// //1. Invoke
+// squareOne(2)
+
+// // 2. Create
+// // HOISTED TO THE TOP OF THE SCOPE
+// function squareOne (x){
+// 	console.log("square")
+// 	return x * x;
+// }
+
+// // 3. Invoke it again
+// squareOne(2)
+
+
+// // // // --------------------
+// // // // --- Functions expression
+// // // // --------------------
+
+// // // // anonymous function 
+// // // // assigned to a variable
+
+// // squareTwo(2);//not possible
+
+// // // // NOT HOISTED
+// const squareTwo = function (x) {
+// 	console.log("square")
+// 	return x * x;
+// }
+
+// squareTwo(2);
+
+// // // -- Use with callbacks
+// // // function expression - anonymous 
+// btn.addEventListener("click", 
+// 	function () {
+// 		alert("hello")
+// 	}
+// )
+
+
+// // // --------------------
+// // // --- Anonymous arrow function
+// // // --------------------
+
+// //anonymous
+// // function (a) {
+// // 	return a + 100;
+// // }
+
+// // // // The same as
+// // (a) => {
+// //   return a + 100;
+// // }
+
+// // // in 1 line, the arrow function returns the value
+// // (a) => a + 100;
+
+// // a => a + 100;
+
+// // // // --------------------
+// // // // --- ES6 arrow functions
+// // // // ---------
+
+// // //function declation 
+// squareOne(2);
+
+// // function declaration
+// function squareOne (x){
+// 	return x * x;
+// }
+
+// //function expression
+// const squareOne = function (x) {
+// 	return x * x;
+// }
+
+// //arrow function
+// const squareOne = (x) => x*x
+// let result = squareOne(2);
+// console.log(result)
+
+// // with different number of parameters
+// const squareA = (x) => x*x;
+// const squareB = x => x*x;
+// // more than 1 parameter
+// const squareC = (x,y) => x*y;
+// // no parameters
+// const squareD = () => "hello";
+
+// btn.addEventListener("click", 
+// 	function () {
+// 		alert("hello")
+// 	}
+// )
+
+// //same as
+// btn.addEventListener("click", () => alert("hello"))
+
+// //If the function has more than 1 line, we need square brackets and return
+// const squareOne = (x) => {
+// 	x = x + 2
+// 	return x*x
+// }
+
+
+
+
+
+/*----------------- TERNARY OPERATOR --------------------*/
+
+// function getTemp (temp) {
+// 	if (temp > 20) {
+// 		return "Summer";
+// 	} else {
+// 		return "Winter";
+// 	}
+// }
+
+// getTemp(24)
+
+// // expression ? if the expression is true : if the expression is not true
+// function getTempTwo (temp) {
+// 	let season = temp > 20 ? "Summer" : "Winter";
+// 	return season;
+// }
+
+// getTempTwo(24)
+
+// const getTempThree = (temp) => temp > 20 ? "Summer" : "Winter";
+// getTempThree(24)
+
+
+/*-------------------Array mathods -------------------------*/
+
+// //---------------------------------
+// // Array methods and arrow function
+// //---------------------------------
+
+// with for loop
+// let classmates = ["Josh", "Lily", "Sophie", "Mark"]; 
+
+// for (let i =0; i< classmates.length; i++){
+// 	console.log(classmates[i])
+// }
+
+// for (let student of classmates){
+// 	console.log(student)
+// }
+
+// for (let i =0; i< classmates.length; i++){
+// 	showStudent(classmates[i])
+// }
+
+// function showStudent (student) {
+// 	console.log(student)
+// }
+
+
+// for each
+
+let classmates = ["Josh", "Lily", "Sophie", "Mark"]; 
+
+// //with callback anonymous function
+//with function expression
+classmates.forEach(
+	function (element, index) {
+		console.log(`${element} is at the index ${index}`)
+	}
+)
+
+//1st loop
+// Josh is at the index 0
+
+// //2nd loop
+// Lily is at the index 2
+
+//anonymous arrow function
+classmates.forEach((element, index) => console.log(`${element} is at the index ${index}`))
+
+//with a named function
+const checkStudent = (element, index) => console.log(`${element} is at the index ${index}`)
+classmates.forEach(checkStudent);
+
+// EXERCISE
+
+// Use for each and arrow function, 
+// to add a "&" after Sophie and a "!" after all the other names
+// the result is ['Josh!', 'Lily!', 'Sophie&', 'Mark!']
+// Use tenary operator
+
+classmates.forEach((element, index) => {
+	if(element === "Sophie"){
+		classmates[index] += "&"
+	}else{
+		classmates[index] += "!"
+	}
+})
+
+console.log(classmates)
+
+//ternary operator
+classmates.forEach((element, index) => element === "Sophie" ? classmates[index] += "&" : classmates[index] += "!")
+// console.log(classmates)
+
+//same with the array parameter
+classmates.forEach((element, index, array) => element === "Sophie" ? array[index] += "&" : array[index] += "!")
+// console.log(classmates)
+
+// change the "red" to "lightred"
+// let colors = ["blue", "red"];
+// colors[1] = "lightred"
+
+// syntax
+// arrayname.forEach(function)
+
+// // ------------------
+// // SOME & EVERY
+// // ------------------
+
+// arrayName.some((element,index,array) => {
+// 	console.log("num = ", num);
+// 	console.log("ind = ", ind);
+// 	console.log("array = ", array);
+// })
+
+// at least one item is bigger than 5
+let myArr = [12,2,4,6];
+
+// let result = myArr.some((element) => {return element>5})
+//same
+let result = myArr.some((element) => element>5)
+console.log(result)
+
+// let result = myArr.some((element) => {
+// 	console.log("element is ", element)
+// 	return element>5
+// })
+// console.log(result)
+
+// all the items is bigger than 5
+let resultSecond = myArr.every((element) => {
+	console.log("element is ", element)
+	return element>5
+})
+console.log(resultSecond)
+
+
+
+/*-------------------function return-----------------*/
+
+//------------------
+// return
+//------------------
+
+// first possibility
+
+function makeChocolate () {
+		let type = "dark";
+		return type;
+}
+
+//return : means I give to the function a result
+
+function calculatePrice (){
+	let chocolateType = makeChocolate(); 
+	//chocolateType = "dark"
+	let price;
+	if (chocolateType === "dark"){
+		price = 2;
+	} else {
+		price = 4;
+	}
+	console.log(price)
+}
+
+function favChocolate () {
+	let favchoco = makeChocolate(); 
+	//favchoco = "dark"
+	if (favchoco === "dark"){
+		console.log("Yeah")
+	} else {
+		console.log("Nope")
+	}
+}
+
+
+calculatePrice()
+favChocolate()
+
+
+// Second possibility
+
+// 1. create the function
+function makeChocolate () {
+	// 2.1 Create a local variable
+	let type = "dark";
+	//2.2 Invoking the calculatePrice function
+	calculatePrice(type);	
+}
+
+// 2. invoke it
+makeChocolate()
+
+function calculatePrice (chocotype){
+	let price;
+	if (chocotype === "dark"){
+		price = 2;
+	} else {
+		price = 4;
+	}
+	console.log(price)
+}
+
+
+
+
+
+
+
+// a console.log is not a return
+
+function say(message) {
+	let sentence = `<I say ${message}>`;
+  console.log("The sentence is : ", sentence);
+}
+
+say("Hello");
+
+
+
+function say(message) {
+    let sentence = `<I say ${message}>`;
+    return sentence;
+    console.log("hello") //impossible
+}
+
+let userSentence = say("Hello"); 
+// userSentence = "<I say Hello>"
+
+
+document.body.textContent = "The userSentence is : ", userSentence;
+
+// //------------------
+// // multiple return statements in the function 
+// //------------------
+
+function compare(a, b, operator) {
+    if (operator === "+") {
+        return a+b;
+    } else if (operator === "-") {
+        return a-b;
+    } else {
+    		return "ERROR";
+    }
+    console.log("Hello"); //will never be executed
+}
+
+let value = compare(1,2,"+");
+//value = 3
+console.log(value)
+
+let valueSecond = compare(1,2,"x");
+//valueSecond= "ERROR"
+console.log(valueSecond)
+
+
+
+
+
+
+
+
+
+// example
+
+// 1. Create function
+function checkAge(ageStudent) {
+  if (ageStudent >= 18) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// 2. Create a global variable
+let age = 17;
+
+// if 
+if ( checkAge(age) ) {
+  alert( 'Access granted' );
+} else {
+  alert( 'Access denied' );
+}
+
+// // --------------------
+// // Returning multiple values from a function
+// // -----------------
+
+// //OBJECT
+
+function detailsUser(){
+	let username = "John";
+	let age = 12;
+	return {
+		userN : username,
+		ageN : age,
+	}
+}
+
+let details = detailsUser();
+console.log("details: ", details)
+let usernameFromFunction = details["userN"];
+let ageFromFunction = details["ageN"];
+
+// Object
+
+function detailsUser(){
+	//local variables
+	let username = "John";
+	let age = 12;
+	return {
+		username ,
+		age	
+	}
+}
+
+let detailsMore = detailsUser();
+console.log(detailsMore)
+document.body.textContent = `${detailsMore["username"]} is ${detailsMore["age"]} years old`
+
+
+// // ARRAY
+
+function detailsProduct(){
+	let product = "jeans";
+	let price = 10;
+	return [product, price];
+}
+
+let myProduct = detailsProduct();
+// console.log(myProduct)
+document.body.textContent = `${myProduct[0]} is ${myProduct[1]} years old`
