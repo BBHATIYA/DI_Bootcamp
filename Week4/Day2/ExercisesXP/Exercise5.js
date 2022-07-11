@@ -34,27 +34,17 @@ function makeJuice(sizeofbeverage) {
   }
 
   function displayJuice() {
-    // let newstring1 = ingredients.slice(1);
-    // console.log(newstring1);
-    let changeToString = ingredients.toString("");
-    console.log(changeToString);
-
-    let addingQuots = `"${changeToString}"`;
-    console.log(addingQuots);
-
-    let substrings = addingQuots.split(" ");
-    console.log(substrings);
-
-    substrings.forEach((element, index) => {
+    ingredients.forEach((element) => {
       let div2 = document.createElement("div");
       let text2 = document.createTextNode(
-        `The client wants a ${sizeofbeverage} juice, containing ${element}, ${element}, ${element}`
+        `The client wants a ${sizeofbeverage} juice, containing ${element}`
       );
       div2.appendChild(text2);
       document.body.appendChild(div2);
     });
   }
 
+  addIngredients("Grapes", "Apple", "vodka");
   addIngredients("Grapes", "Apple", "vodka");
   displayJuice();
 }
