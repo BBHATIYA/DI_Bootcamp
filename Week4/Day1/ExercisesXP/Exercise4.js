@@ -10,5 +10,14 @@ const displayColors = (element, index) =>
   console.log(`${index + 1}# choice is ${element}`);
 colors.forEach(displayColors);
 
-const checkViolet = (element, index) => colors.includes("Violet") === true? console.log("yeah") : console.log("No....");
+const checkViolet = (element, index) =>
+  colors.includes("Violet") === true
+    ? console.log("yeah")
+    : console.log("No....");
 colors.forEach(checkViolet);
+
+// colors.forEach((element,i) => {
+//     console.log(`#${i+1} choice is ${element}`)
+//   });
+
+// colors.forEach((element , index) => element === "Violet" ? console.log("Yeah") : console.log("no...."));
