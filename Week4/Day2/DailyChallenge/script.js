@@ -42,6 +42,6 @@ cloneGroceries();
 // Change the client variable to “Betty”. Will we also see this modification in the user variable ? Why ?
 // Yes...because user is = clint and Pass By Reference
 
-// Change the value of the totalPrice key to 35$. Will we also see this modification in the shopping object ? Why ? Yes...----because shopping is = groceries and we change value to the first address..it's Pass By Reference
+// Change the value of the totalPrice key to 35$. Will we also see this modification in the shopping object ? Why ? Yes...----because shopping is = groceries and ..it's Pass By Reference
 
-// Change the value of the payed key to false. Will we also see this modification in the shopping object ? Why ? Yes..same reason as above changing value in first address and we made shopping = groceries - Pass By Reference
+// Change the value of the payed key to false. Will we also see this modification in the shopping object ? Why ? Yes..same reason as above and we made shopping = groceries - which is Pass By Reference
