@@ -11,7 +11,7 @@
 
 // Invoke the cloneGroceries function.
 
-let client = "Betty";
+let client = "John";
 
 let groceries = {
   fruits: ["pear", "apple", "banana"],
@@ -29,7 +29,9 @@ const displayGroceries = groceries.fruits.forEach((params) => {
 
 const cloneGroceries = () => {
   let user = client;
-  // user = "Betty";
+  client = "Betty";
+  console.log(client);
+
   console.log(user);
   let shopping = groceries;
   console.log(shopping);
@@ -40,7 +42,7 @@ const cloneGroceries = () => {
 };
 cloneGroceries();
 // Change the client variable to “Betty”. Will we also see this modification in the user variable ? Why ?
-// Yes...because user is = clint and Pass By Reference
+// No...stack won't allow to change. change will create new address
 
 // Change the value of the totalPrice key to 35$. Will we also see this modification in the shopping object ? Why ? Yes...----because shopping is = groceries and ..it's Pass By Reference
 
