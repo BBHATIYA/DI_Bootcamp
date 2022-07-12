@@ -44,6 +44,6 @@ cloneGroceries();
 // Change the client variable to “Betty”. Will we also see this modification in the user variable ? Why ?
 // No...stack won't allow to change. change will create new address
 
-// Change the value of the totalPrice key to 35$. Will we also see this modification in the shopping object ? Why ? Yes...----because shopping is = groceries and ..it's Pass By Reference
+// Change the value of the totalPrice key to 35$. Will we also see this modification in the shopping object ? Why ? Yes...----because shopping is = groceries with same address and ..it's Pass By Reference
 
-// Change the value of the payed key to false. Will we also see this modification in the shopping object ? Why ? Yes..same reason as above and we made shopping = groceries - which is Pass By Reference
+// Change the value of the payed key to false. Will we also see this modification in the shopping object ? Why ? Yes..same reason as above and we made shopping = groceries with same address - which is Pass By Reference
