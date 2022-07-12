@@ -25,3 +25,7 @@ const stackResidents = users.filter((resident) =>
 console.log(stackResidents);
 
 // 3. Bonus : Chain the filter method with a map method, to return an array containing only the lastName of the Full Stack Residents.
+
+// .map((resident) => resident.lastName)
+const n = stackResidents.map((resident) => resident.lastName);
+console.log(n);
