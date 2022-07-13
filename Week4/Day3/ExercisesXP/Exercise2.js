@@ -31,5 +31,5 @@ const n = stackResidents.map((resident) => resident.lastName);
 console.log(n);
 
 // const nameFullstack = users.filter((resident) => resident["role"].includes("Full Stack Resident"));
-
+                        
 // console.log(nameFullstack);

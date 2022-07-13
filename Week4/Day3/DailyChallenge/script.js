@@ -4,35 +4,6 @@
 // then, return a string in the format This is a {car_make} {car_model} from {car_year}.
 // Hint : Find an array method that returns the value of the first element in an array that pass a test.
 
-// let inventory = [
-//   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
-//   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
-//   { id: 3, car_make: "Honda", car_model: "Accord", car_year: 1983 },
-//   {
-//     id: 4,
-//     car_make: "Land Rover",
-//     car_model: "Defender Ice Edition",
-//     car_year: 2010,
-//   },
-//   { id: 5, car_make: "Honda", car_model: "Accord", car_year: 1995 },
-// ];
-
-// function getCarHonda(carInventory) {
-//   const carHonda = inventory.find((model) =>
-//     model["car_make"].includes("Honda")
-//   );
-//   return `This is a ${carHonda.car_make} ${carHonda.car_model} from ${carHonda.car_year}`;
-
-// let result = getCarHonda();
-// console.log(result);
-
-// Part II
-
-// Create a function sortCarInventoryByYear(carInventory) that takes a single parameter. carInventory‘s value is an array which is an inventory of cars (see the array of objects below)
-// the function should return an inventory that is sorted by car_year, ascending.
-// Hint : Check out this tutorial on the sort method
-// Use the cars inventory below:
-
 let inventory = [
   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
@@ -46,5 +17,46 @@ let inventory = [
   { id: 5, car_make: "Honda", car_model: "Accord", car_year: 1995 },
 ];
 
-let sortYears = inventory.sort((x, y) => x.car_year - y.car_year);
-console.log(sortYears);
+// function getCarHonda(carInventory) {
+//   const carHonda = inventory.find((model) =>
+//     model["car_make"].includes("Honda")
+//   );
+//   return `This is a ${carHonda.car_make} ${carHonda.car_model} from ${carHonda.car_year}`;
+
+// let result = getCarHonda();
+// console.log(result);
+
+const getCarHonda = function (carInventory) {
+  // we find the first object in the carInventory that is a Honda
+  const firstHonda = carInventory.find((car) => car["car_make"] === "Honda");
+  console.log(firstHonda); //{id: 3, car_make: 'Honda', car_model: 'Accord', car_year: 1983}
+
+  const sentence = `This is a ${firstHonda["car_make"]} 
+    ${firstHonda["car_model"]} from ${firstHonda["car_year"]}`;
+  return sentence;
+};
+
+console.log(getCarHonda(inventory));
+
+// Part II
+
+// Create a function sortCarInventoryByYear(carInventory) that takes a single parameter. carInventory‘s value is an array which is an inventory of cars (see the array of objects below)
+// the function should return an inventory that is sorted by car_year, ascending.
+// Hint : Check out this tutorial on the sort method
+// Use the cars inventory below:
+
+// let inventory = [
+//   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
+//   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
+//   { id: 3, car_make: "Honda", car_model: "Accord", car_year: 1983 },
+//   {
+//     id: 4,
+//     car_make: "Land Rover",
+//     car_model: "Defender Ice Edition",
+//     car_year: 2010,
+//   },
+//   { id: 5, car_make: "Honda", car_model: "Accord", car_year: 1995 },
+// ];
+
+// let sortYears = inventory.sort((x, y) => x.car_year - y.car_year);
+// console.log(sortYears);
