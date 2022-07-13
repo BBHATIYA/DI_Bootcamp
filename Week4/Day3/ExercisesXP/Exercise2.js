@@ -19,8 +19,8 @@ const welcomeMessage = users.map((name) => `Hello ${name.firstName}`);
 
 // 2. Using the filter() method, create a new array, containing only the Full Stack Residents.
 
-const stackResidents = users.filter((resident) =>
-  resident["role"].includes("Full Stack Resident")
+const stackResidents = users.filter(
+  (resident) => resident["role"] === "Full Stack Resident"
 );
 console.log(stackResidents);
 
@@ -29,3 +29,7 @@ console.log(stackResidents);
 // .map((resident) => resident.lastName)
 const n = stackResidents.map((resident) => resident.lastName);
 console.log(n);
+
+// const nameFullstack = users.filter((resident) => resident["role"].includes("Full Stack Resident"));
+
+// console.log(nameFullstack);
