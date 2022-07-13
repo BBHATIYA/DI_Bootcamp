@@ -3,20 +3,20 @@
 // ## Exercise1
 // ### Part I
 // What does the following code return/print?
-// let facts = { numPlanets: 8, yearNeptuneDiscovered: 1846 };
-// let { numPlanets, yearNeptuneDiscovered } = facts;
+let facts = { numPlanets: 8, yearNeptuneDiscovered: 1846 };
+let { numPlanets, yearNeptuneDiscovered } = facts;
 
-// console.log(numPlanets);
-// console.log(yearNeptuneDiscovered);
+console.log(numPlanets);
+console.log(yearNeptuneDiscovered);
 
 // // ## Exercise2
 // // 1. Modify the code below, and destructure the object in the parameter
 // // (ie. you should have 3 parameters : name, house and goodstudents)
-// function getDetails({ name, house, goodstudent }) {
-//   console.log(name, house, goodstudent);
-// }
+function getDetails({ name, house, goodstudent }) {
+  console.log(name, house, goodstudent);
+}
 
-// getDetails({ name: "Harry Potter", house: "Gryfindor", goodstudent: false });
+getDetails({ name: "Harry Potter", house: "Gryfindor", goodstudent: false });
 
 // # Object destructuring
 // ## Exercise1
