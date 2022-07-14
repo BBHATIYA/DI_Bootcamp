@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url(./circuit-pattern.png);
+    background-color: #6656CB;
+}
+.title{
+    font-family: 'SEGA LOGO FONT', sans-serif;
+    font-size: 2em;
+                                                
+}
+
+#navbar{
+    display: flex;
+    background-color: #6ADF82;
+    padding: 1%;
+}
+
+#search{
+    width: 60%;
+    margin-left: 30px;
+}
