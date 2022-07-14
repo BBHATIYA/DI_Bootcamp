@@ -80,12 +80,12 @@ const robots = [
   },
 ];
 let section = document.getElementById("main-container");
-console.log(section);
 
 function displayRobot() {
   robots.forEach(function (robot) {
     let div = document.createElement("div");
     div.setAttribute("id", robot["id"]);
+    div.classList.add("roboclass");
     let paragraph1 = document.createElement("p");
     let ptext1 = document.createTextNode(robot.name);
     paragraph1.classList.add("name");
@@ -105,3 +105,31 @@ function displayRobot() {
 }
 
 displayRobot();
+
+let searchPlace = document.getElementById("search");
+searchPlace.addEventListener("input", manageSearchBar);
+
+function manageSearchBar() {
+  // console.log(searchPlace.value);
+  let input = searchPlace.value;
+
+  let allRobots = Array.from(document.getElementsByClassName("roboclass"));
+
+  console.log(allRobots);
+
+  allRobots.forEach(function myfunc(elem, i) {
+    let name = robots[i].name.toLowerCase();
+    console.log(name);
+
+    if (input.length > 0) {
+      elem.setAttribute("style", "display: none");
+      if (name.includes(input)) {
+        elem.setAttribute("style", "display: ");
+      }
+    } else {
+      elem.setAttribute("style", "display: ");
+    }
+  });
+}
+
+manageSearchBar();

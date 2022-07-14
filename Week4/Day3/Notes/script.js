@@ -362,3 +362,6 @@ function checkNames(a, b, c) {
 }
 
 checkNames(...["John", "Josh", "Lea"]);
+
+
+
