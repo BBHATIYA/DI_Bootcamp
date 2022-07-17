@@ -111,7 +111,7 @@ searchPlace.addEventListener("input", manageSearchBar);
 
 function manageSearchBar() {
   // console.log(searchPlace.value);
-  let input = searchPlace.value;
+  let input = searchPlace.value.toLowerCase().trim();
 
   let allRobots = Array.from(document.getElementsByClassName("roboclass"));
 
