@@ -45,15 +45,25 @@ let jsonString = `
     }
 }`;
 
+const manipulateJson = (function () {
+  let quizObj = JSON.parse(jsonString);
+  let retrieveAllOptions = quizObj["quiz"]["sport"]["q1"]["options"];
 
-const getOptions = function (){
-    let toObject = JSON.parse(jsonString);
-    console.log(toObject);
+  //obj destructuring
+  // const {
+  // 	quiz :
+  // 		{sport :
+  // 			{ q1 :
+  // 				{options}
+  // 			}
+  // 		}
+  // 	}  = quizObj
 
-    let retriveAllOptions = toObject[]
+  // retrieveAllOptions.forEach((element) => console.log(element))
 
-  
-}
-
-getOptions()
-
+  //stringify - converts a JS object to a JSON string
+  // null in the stringify method means that the JSON string needs to contains
+  // exactly the same values as the JS object
+  let stringQuiz = JSON.stringify(quizObj, null, 2);
+  console.log(stringQuiz);
+})();
