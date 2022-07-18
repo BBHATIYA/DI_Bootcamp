@@ -27,7 +27,7 @@ function requestData(ev) {
     let buttonDelete = document.createElement("button");
     let buttonText = document.createTextNode("Delete");
     buttonDelete.setAttribute("type", "Submit");
-    let deleteAllButton = document.createElement("button");
+    // let deleteAllButton = document.createElement("button");
     buttonDelete.appendChild(buttonText);
     formOfImage.appendChild(image);
     formOfImage.appendChild(buttonDelete);
@@ -38,6 +38,17 @@ function requestData(ev) {
     function deleteImage(ev) {
       ev.preventDefault();
       ev.target.remove();
+    }
+
+    let deleteAllButton = document.getElementById("deleteall");
+    // console.log(deleteAllButton);
+    deleteAllButton.addEventListener("click", deleteAllGif);
+
+    function deleteAllGif() {
+      let gifForms = document.getElementsByClassName("formOfImage");
+      let newArray = Array.from(gifForms);
+      console.log(gifForms);
+      newArray.forEach((element) => (element.style.display = "none"));
     }
   };
 }
