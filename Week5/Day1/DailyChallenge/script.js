@@ -14,8 +14,9 @@ function displayAsJson(ev) {
   let inobject = Object.fromEntries(input.entries());
   let inputJson = JSON.stringify(inobject);
   // console.log(inputJson);
-  let p = document.createElement("p");
-  let text = document.createTextNode(inputJson);
-  p.appendChild(text);
-  document.body.appendChild(p);
+  // let p = document.createElement("p");
+  // let text = document.createTextNode(inputJson);
+  // p.appendChild(text);
+  // document.body.appendChild(p);
+  document.write(inputJson);
 }
