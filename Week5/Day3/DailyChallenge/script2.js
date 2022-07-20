@@ -66,7 +66,7 @@ let morse = `{
 const toJs = (str) => {
   return new Promise((resolve, reject) => {
     if (str.length === 0) {
-      reject("this string is empty -- error in first function");
+      reject("Morse object is empty");
     } else {
       let obj = JSON.parse(str);
       resolve(obj);
@@ -89,9 +89,7 @@ const toMorse = (obj) => {
       if (arrStr[i] in obj) {
         returnArr.push(obj[arrStr[i]]);
       } else {
-        reject(
-          "One letter of the prompt doesn't exist in the object ERROR SECOND FUNCTION"
-        );
+        reject("One letter of the prompt doesn't exist in the object");
       }
     }
     resolve(returnArr);

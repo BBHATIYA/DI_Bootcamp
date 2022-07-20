@@ -17,7 +17,7 @@ const makeAllCaps = (arr) => {
       if (typeof element === "string") {
         return element.toUpperCase();
       } else {
-        reject("Not all elements are strings");
+        reject("Not all words are strings");
       }
     });
     resolve(allCaps);
