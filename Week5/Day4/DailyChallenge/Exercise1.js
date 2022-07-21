@@ -13,10 +13,6 @@ const promise3 = new Promise((resolve, reject) => {
 });
 // expected output: Array [3, 42, "foo"]
 
-Promise.all([
-  3,
-  42,
-  new Promise((resolve, reject) => {
-    setTimeout(resolve, 3000, "foo");
-  }),
-]).then((result) => console.log([result])); //[3, 42, "foo"]
+let proAll = Promise.all([promise1, promise2, promise3])
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));

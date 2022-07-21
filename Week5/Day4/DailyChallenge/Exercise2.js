@@ -19,56 +19,42 @@
 // Latitude: 40.730610
 // Longitude: -73.935242
 
-let form = document.getElementById("form");
-form.addEventListener("input", retrieveInput);
+//DailyChallenge
 
-function retrieveInput() {
-  const fcitylat = document.getElementById("fcitylat").value;
-  const fcitylong = document.getElementById("fcitylong").value;
-  const scitylat = document.getElementById("scitylat").value;
-  const scitylong = document.getElementById("scitylong").value;
-  //   console.log(scitylong);
+
+const btn = document.getElementById("btn");
+btn.addEventListener("click", fetchSunrise);
+
+async function fetchSunrise(){
+	const latitudeParis = 48.864716;
+	const longitudeParis = 2.349014;
+	const latitudeNY = 40.730610;
+	const longitudeNY = -73.935242;
+	
+	try {
+		const urlParis = `https://api.sunrise-sunset.org/json?lat=${latitudeParis}&lng=${longitudeParis}&date=today`;
+		const urlNY = `https://api.sunrise-sunset.org/json?lat=${latitudeNY}&lng=${longitudeNY}&date=today`;
+		const [resultsParis, resultNY] = await Promise.all([fetch(urlParis), fetch(urlNY)]);
+		
+		if (resultsParis.status !== 200 && resultNY.status !== 200) {
+			throw new Error ("Error in status")
+		} else {
+			const allresults = await Promise.all([resultsParis.json(), resultNY.json()]);
+			displayData(allresults)
+		}
+
+	} catch(error){
+		console.log(error.message)
+	}
 }
 
-async function getFirstCity(fcitylat, fcitylong) {
-  let firstCityResult = await fetch(
-    `https://api.sunrise-sunset.org/json?lat=${fcitylat}&lng=${fcitylong}`
-  );
-  // let objName1 = await firstCityResult.json();
-  // console.log(objName1);
 
-  if (firstCityResult.status !== 200) {
-    throw new Error("Not good location-");
-  } else {
-    let objName1 = await firstCityResult.json();
-    return objName1["results"]["sunrise"];
-  }
-}
-console.log(getFirstCity(40.73061, -73.935242));
-
-// async function getCitySecond() {
-
-//     let secondCityResult = await fetch(
-//     `https://api.sunrise-sunset.org/json?lat=${scitylat}&lng=${scitylong}`
-//     );
-//     // let objName2 = await secondCityResult.json();
-//     //  console.log(objName1);
-
-//     if (secondCityResult.status !== 200) {
-//       throw new Error("Not good location-");
-//     } else {
-//       let objName2 = await secondCityResult.json();
-//       return objName2;
-//     }
-
-// }
-
-async function displaySunrise() {
-  try {
-    let city1 = await getFirstCity();
-    if (fcitylat.length == 0 || fcitylong.length == 0) {
-      throw new Error("location is not good");
-    } else {
-    }
-  } catch {}
+function displayData (results) {
+	results.forEach((elem, i)=> {
+		const {results:{sunrise}} = elem
+		const p = document.createElement("p");
+		const text = document.createTextNode(`The sunrise in the #${++i} city is ${sunrise}`)
+		p.appendChild(text);
+		document.body.appendChild(p)
+	})
 }
