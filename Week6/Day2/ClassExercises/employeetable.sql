@@ -128,3 +128,55 @@
 -- FROM DEPARTMENT
 -- INNER JOIN EMPLOYEE
 -- ON DEPTCODE = department_code;
+
+
+
+
+-- **********************Class Solution*******************
+
+-- 1. How many employees are in dept 10.
+SELECT COUNT(*) FROM employee WHERE departmentcode=10;
+​
+-- 16 employees : one employee doesnt work in a dept
+SELECT COUNT(departmentcode) FROM employee;
+-- 17 employees
+SELECT COUNT(*) FROM employee; 
+​
+-- 2. How many employees are analyst in dept 10.
+SELECT COUNT(*) FROM employee WHERE departmentcode=10 AND job ILIKE '%analyst%';
+​
+-- 3. Display the names of each employees, their job and dept location
+-- INNER JOIN to join several tables depending on their relationship
+-- foreign key of one table references the primary key in another table
+SELECT empfname, job,department.location
+FROM employee
+INNER JOIN department
+ON employee.departmentcode=department.deptcode;
+​
+-- 4. Find the avg salary of the software engineers
+SELECT ROUND(AVG(salary),2) FROM employee WHERE job ILIKE '%software%';
+​
+-- 5. Which join should we use to display the employee 9777 even if he has no deptcode?
+SELECT EMPFNAME, deptcode
+FROM employee
+LEFT JOIN department
+ON employee.departmentcode=department.deptcode;
+​
+-- 6. Create a query that displays EMPFNAME, EMPLNAME, Department_code, DEPTNAME, 
+-- LOCATION from EMPLOYEE, and DEPARTMENT tables. 
+-- Make sure the results are in the ascending order based on the EMPFNAME and LOCATION of the department.
+SELECT EMPFNAME, EMPLNAME, departmentcode, DEPTNAME, department.LOCATION
+FROM employee
+INNER JOIN department
+ON employee.departmentcode=department.deptcode
+ORDER BY EMPFNAME, department.LOCATION ASC;
+​
+​
+-- 7.  Display EMPFNAME and "TOTAL SALARY" for each employee (commission and salary)
+SELECT empfname, (salary+commission) as total FROM employee;
+​
+SELECT empfname, SUM(salary+commission) as total FROM employee
+GROUP BY empfname;
+​
+-- 8. Display MAX SALARY from the EMPLOYEE table.
+SELECT MAX(salary) from employee;
