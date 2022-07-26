@@ -80,3 +80,5 @@
 -- SELECT * FROM new_film;
 
 -- The customer review also gets deleted because we put ON DELETE CASCADE!
+
+SELECT * FROM film;
