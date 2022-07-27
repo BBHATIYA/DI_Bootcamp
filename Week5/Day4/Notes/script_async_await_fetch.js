@@ -10,7 +10,8 @@ function retrieveName() {
 
 async function retrieveName() {
   try {
-    let result = await fetch("https://jsonplaceholder.typicode.com/users/1"); //value of the result of the promise
+    let result = await fetch("https://jsonplaceholder.typicode.com/users/1");
+     //value of the result of the promise
     let objName = await result.json();
     // result.json() returns a promise, in order to retrieve the result of this
     // promise I need to await

@@ -12,7 +12,7 @@ let users = [
 // You should get an array that looks like this :
 
 const firstNameUsers = users.map((person) => `Hello ${person["firstName"]}`);
-// console.log(firstNameUsers)
+console.log(firstNameUsers)
 
 // 2. Using the filter() method, create a new array, containing only the Full Stack Residents.
 const justFullStack = users.filter(

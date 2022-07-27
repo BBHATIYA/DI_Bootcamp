@@ -13,6 +13,7 @@
 
 
 
+
 -- CREATE TABLE customer (
 -- customer_id SERIAL PRIMARY KEY NOT NULL,
 -- first_name VARCHAR(30) NOT NULL,
@@ -68,6 +69,7 @@
 -- WHERE isLoggedin ='false';
 
 
+
 -- Part II:
 
 -- 1
@@ -93,11 +95,11 @@
 -- CREATE TABLE student(
 --     id SERIAL PRIMARY KEY,
 --     name VARCHAR(80) NOT NULL UNIQUE,
---     age INT,
---     CONSTRAINT valid_number CHECK ( age < 15 )
+--     age SMALLINT CHECK ( age <= 15 )
 -- )
 
 -- 4
+
 
 -- INSERT INTO student (name , age) 
 -- VALUES ('John', 12), 
@@ -139,21 +141,6 @@
 
 
 -- SELECT * FROM library;
-
-
-
-
-
--- INSERT INTO library (book_fk_id, student_fk_id , borrowed_date)
--- VALUES
--- (3,4, '2021/03/03'),
--- (1,2, '2021/05/23'),
--- (2,4, '2021/08/12');
-
-
-
-
-
 
 
 
