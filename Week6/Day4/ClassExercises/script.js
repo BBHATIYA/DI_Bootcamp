@@ -35,20 +35,115 @@ let products = [
 ];
 
 (function () {
-  products.forEach((element) => {
-    let name = document.createElement("p");
-    let nametext = document.createTextNode(element["name"]);
-    name.appendChild(nametext);
-    document.getElementById("main-container").appendChild(name);
-
-    // let id = document.createElement("p");
-    // let idtext = document.createTextNode(element["id"]);
-    // name.appendChild(idtext);
-    // document.getElementById("main-container").appendChild(id);
-
-    let image = document.createElement("img");
-    image.setAttribute("src", element["url"]);
-    image.classList.add("pro-image");
-    document.getElementById("main-container").appendChild(image);
-  });
+  for (let i in products) {
+    let elm = document.createElement("form");
+    elm.setAttribute("class", "cart-item");
+    elm.setAttribute("id", `${products[i].id}`);
+    let img = document.createElement("img");
+    img.setAttribute("src", products[i].url);
+    let text = document.createTextNode(products[i].name);
+    let price = document.createTextNode(`Price $${products[i].price}`);
+    let submit = document.createElement("button");
+    let submitText = document.createTextNode("Add To Cart");
+    submit.appendChild(submitText);
+    submit.setAttribute("type", "submit");
+    elm.appendChild(img);
+    elm.appendChild(text);
+    elm.appendChild(price);
+    elm.appendChild(submit);
+    document.body.appendChild(elm);
+  }
+  payButton();
 })();
+
+function payButton() {
+  let elm = document.createElement("button");
+  let link = document.createElement("a");
+  link.setAttribute("href", "pay.html");
+  let text = document.createTextNode("Pay Now");
+  link.appendChild(text);
+  elm.appendChild(link);
+  document.body.appendChild(elm);
+}
+// 4. The user clicks on the item to add them to his cart. The cart is an array of items, saved in the
+// localstorage. Each item is an object containing the name of the product and the price.
+let cart = [];
+let cartItems = document.getElementsByClassName("cart-item");
+for (let i = 0; i < cartItems.length; i++) {
+  cartItems[i].addEventListener("submit", addItemToCart);
+}
+
+function addItemToCart() {
+  event.preventDefault();
+  let id = Number(event.target.id);
+  let item = {
+    name: products[id].name,
+    price: products[id].price,
+  };
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+}
+
+// (function () {
+//   const addItemOnPage = products.forEach((element) => {
+//     let div = document.createElement("div");
+//     div.classList.add("item-class");
+//     let name = document.createElement("p");
+//     let nametext = document.createTextNode(element["name"]);
+//     name.appendChild(nametext);
+//     div.appendChild(name);
+
+//     let image = document.createElement("img");
+//     image.setAttribute("src", element["url"]);
+//     image.classList.add("pro-image");
+//     div.appendChild(image);
+
+//     let price = document.createElement("p");
+//     let pricetext = document.createTextNode(element["price"]);
+//     let pricename = document.createElement("span");
+//     let priceText = document.createTextNode("Price : ");
+//     pricename.appendChild(priceText);
+//     price.appendChild(pricename);
+//     price.appendChild(pricetext);
+//     div.appendChild(price);
+
+//     document.getElementById("main-container").appendChild(div);
+
+//     // let id = document.createElement("p");
+//     // let idtext = document.createTextNode(element["id"]);
+//     // name.appendChild(idtext);
+//     // document.getElementById("main-container").appendChild(id);
+//   });
+
+//   return addItemOnPage;
+// })();
+
+// let allItems = [];
+
+// const addToCart = (e) => {
+//   let items = e.target;
+//   // console.log(items);
+
+//   let objectItem = {
+//     name: e.target.perentElement.children[0],
+//     price: e.target,
+//   };
+//   // console.log(objectItem);
+
+//   allItems.push(objectItem);
+// };
+// let itemDiv = document.getElementsByClassName("item-class")[0];
+// let itemDiv1 = document.getElementsByClassName("item-class")[1];
+// let itemDiv2 = document.getElementsByClassName("item-class")[2];
+// let itemDiv3 = document.getElementsByClassName("item-class")[3];
+
+// itemDiv.addEventListener("click", addToCart);
+// itemDiv1.addEventListener("click", addToCart);
+// itemDiv2.addEventListener("click", addToCart);
+// itemDiv3.addEventListener("click", addToCart);
+
+// // console.log(itemDiv);
+// console.log(allItems);
+
+// // e.target.parentElement.children[1].childNodes[0].nodeValue;
