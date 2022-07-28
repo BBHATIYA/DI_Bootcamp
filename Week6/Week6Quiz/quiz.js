@@ -119,16 +119,40 @@
 ​
       1. Part I : Create a button in your HTML page, when the user will click the the button a paragraph will be added on the DOM with the content "New Paragraph". Use arrow functions
 
+     const changeToRed = (event) =>{
+        event.target.style.color = "red"
+     }
+
 ​    let btn = document.getElementById('button')
     btn.addEventListener("click", () =>{
         let p =document.createElement('p');
         let ptext = document.createTextNode("New Paragraph");
         p.appendChild(ptext)
+        p.addEventListener("mouseover", changeToRed)
         document.body.appendChild(p);
     } );
 
       2. Part II : Add to each new paragraph a event listener of mouse over. When you hoover on a paragraph, it should become red
     // I would like to review how to add style after we click on button and it's on page then only mouseover will work, i tried it gives me undefine 
+
+//     let btn = document.getElementById('button')
+
+//      const changeToRed = (event) =>{
+//         event.target.style.color = "red"
+//      }
+
+//      const addP = () =>{
+//      let p = document.createElement("p");
+//      let ptext = document.createTextNode("New Paragraph");
+//      p.appendChild(ptext);
+//      p.addEventListener("mouseover", changeToRed);
+//      document.body.appendChild(p);
+//      } 
+
+// btn.addEventListener("click", addP)
+
+
+
 #### Array Methods
 ​
 14. What is the value of `passed` in the following code?
@@ -157,18 +181,8 @@
 ​
    ```javascript
    const input = [ 1, 2, 3, 4, 5 ];
-   function square(a) {
+      input.forEach((elm) => elm**2); //corrected
 
-    let squaredA = [];
-
-    for (let i = 0; i < a.length; i++) {
-        squaredA.push(Math.pow(a[i], 2));
-  }
-
-  return squaredA;
-}
-
-console.log(square(input));
 //    console.log(input) // [ 1, 4, 9, 16, 25]
    ```
 ​
@@ -187,12 +201,7 @@ console.log(square(input));
 ​
      ```javascript
      const input = 'George Raymond Richard Martin';
-        data = input.split(" "),
-        initials ="";
-
-        for (var i = 0; i < data.length; i++) {
-            initials += data[i].substring(0, 1);
-        }
+      let initials = input.forEach(elm, () => elm[0]).join();
      console.log(initials)//'GRRM'
      ```
 ​
@@ -220,14 +229,16 @@ console.log(square(input));
 20. Refactor this code using Classes
 ​   
 class Item {
-  constructure(name, price){
-    this.name = name;
-    this.price = price;
-  }
-this.displayInfo = function() {
-console.log(this.name + " is for $ " + this.price)
-   }
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+        this.displayInfo = function() {
+            console.log(this.name + " is for $ " + this.price)
+        }
+    }
 }
+const cake = new Item("Chocolate Cake", 10);
+cake.displayInfo(); // "Chocolate cake is for $ 10"
 #### Promises
 ​
 21. What will be the output and why ? What will be the state of the promise ?
@@ -290,9 +301,9 @@ async function getdata() {
   }
 }
 
-function addToPage() {
+async function addToPage() {
   let paragraph = document.createElement("p");
-  let ptext = getdata();
+  let ptext = await getdata();
   let text = document.createTextNode(ptext);
   paragraph.appendChild(text);
   document.body.appendChild(paragraph);
