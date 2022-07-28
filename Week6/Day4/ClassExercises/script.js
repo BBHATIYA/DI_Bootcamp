@@ -73,7 +73,7 @@ for (let i = 0; i < cartItems.length; i++) {
   cartItems[i].addEventListener("submit", addItemToCart);
 }
 
-function addItemToCart() {
+function addItemToCart(event) {
   event.preventDefault();
   let id = Number(event.target.id);
   let item = {
