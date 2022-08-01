@@ -16,6 +16,5 @@ const server = http.createServer((req, res) => {
       </body>
     </html>`
   );
-  //
 });
 server.listen(3001);
