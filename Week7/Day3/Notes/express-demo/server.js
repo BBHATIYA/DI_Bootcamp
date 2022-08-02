@@ -1,9 +1,12 @@
-const express = require('express');
+const express = require("express");
 // const {getProducts,setProducts} = require('./modules/data.js');
-const {getAllProducts,
-        getProduct,
-        searchProduct,
-      insertProduct} = require('./modules/db.js');
+const {
+  getAllProducts,
+  getProduct,
+  searchProduct,
+  insertProduct,
+  updateProduct,
+} = require("./modules/db.js");
 
 const app = express();
 
@@ -15,28 +18,27 @@ const app = express();
 // Update : PUT
 // Delete : DELETE
 
-app.use('/',express.static(__dirname+'/public'));
+app.use("/", express.static(__dirname + "/public"));
 
 // BodyParser - npm
 // to get the body
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(5000, ()=>{
-  console.log('Server is running on port 5000');
-})
+app.listen(5000, () => {
+  console.log("Server is running on port 5000");
+});
 
 // GET - Read
-app.get('/api/products/search', (req,res)=>{
-
+app.get("/api/products/search", (req, res) => {
   const name = req.query.q;
   searchProduct(name)
-  .then(data=>{
-    res.json(data)
-  })
-  .catch(e=>{
-    console.log(e);
-  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
   // const filterProducts = products.filter(item=>{
   //   return item.name.toLowerCase().includes(name.toLowerCase())
   // })
@@ -44,18 +46,18 @@ app.get('/api/products/search', (req,res)=>{
   //   return res.status(201).json({msg:'Not Found'})
   // }
   // res.json(filterProducts);
-})
+});
 
 // GET - Read
-app.get('/api/products/:id',(req,res)=>{
+app.get("/api/products/:id", (req, res) => {
   const pid = req.params.id;
   getProduct(pid)
-  .then(data=>{
-    res.json(data)
-  })
-  .catch(e=>{
-    console.log(e);
-  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
   // const product = products.find(item=>{
   //   return item.id==pid
   // })
@@ -65,28 +67,27 @@ app.get('/api/products/:id',(req,res)=>{
   // res.json(product)
 });
 
-
 // GET - Read all product
-app.get('/api/products',(req,res)=>{
+app.get("/api/products", (req, res) => {
   getAllProducts()
-  .then(data=>{
-    res.json(data)
-  })
-  .catch(e=>{
-    console.log(e);
-  })
-})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
 
 // POST - create a new product
-app.post('/api/products',(req,res)=>{
+app.post("/api/products", (req, res) => {
   console.log(req.body);
   insertProduct(req.body)
-  .then(data=>{
-    res.json(data)
-  })
-  .catch(e=>{
-    console.log(e);
-  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 
   // const newProduct = {
   //   id:products.length+1,
@@ -98,11 +99,19 @@ app.post('/api/products',(req,res)=>{
   // setProducts(products)
   //
   // res.json(products)
-})
+});
 
 // PUT - Update
-app.put('/api/products/:id', (req,res)=>{
+app.put("/api/products/:id", (req, res) => {
   const id = req.params.id;
+  updateProduct(id, req.body)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
   // const index = products.findIndex(item => {
   //   return item.id == id
   // });
@@ -111,14 +120,14 @@ app.put('/api/products/:id', (req,res)=>{
   //   name: req.body.name,
   //   price: req.body.price
   // }
-//
-//
-//   products[index] = updateProduct;
-//
-//   setProducts(products);
-//
-//   res.json(products)
-})
+  //
+  //
+  //   products[index] = updateProduct;
+  //
+  //   setProducts(products);
+  //
+  //   res.json(products)
+});
 
 // DELETE - delete a product
 // app.delete('/api/products/:id', (req,res)=>{
