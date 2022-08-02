@@ -3,6 +3,8 @@ const { products } = require("./modules/data.js");
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/", express.static(__dirname + "/public"));
 
@@ -33,5 +35,16 @@ app.get("/api/products/:id", (req, res) => {
 });
 
 app.get("/api/products", (req, res) => {
+  res.json(products);
+});
+
+app.get("/api/products", (req, res) => {
+  console.log(res.body);
+  const newproducts = {
+    id: products.length + 1,
+    name: req.body.name,
+    price: req.body.name,
+  };
+  products.push(newproducts);
   res.json(products);
 });
