@@ -1,0 +1,9 @@
+[
+  {
+    "fname": "Prakash",
+    "lname": "Devata",
+    "email": "prakash@gmail.com",
+    "username": "Prakash",
+    "password": "123456789"
+  }
+]

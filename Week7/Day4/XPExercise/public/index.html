@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Shopping List</title>
+  </head>
+  <body>
+    <h1>My Shopping List</h1>
+    <form action="/shopping" method="post">
+      <label for="item">Shopping Item:</label><br />
+      <input
+        type="text"
+        id="item"
+        name="item"
+        value=""
+        placeholder="Enter Items here.."
+      /><br />
+      <label for="amount">Shopping Amount:</label><br />
+      <input
+        type="text"
+        id="amount"
+        name="amount"
+        value=""
+        placeholder="Enter amount here.."
+      /><br /><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <button type="submit" name="button">
+      <a href="/shopping">See List</a>
+    </button>
+    <script src="./script.js"></script>
+  </body>
+</html>
