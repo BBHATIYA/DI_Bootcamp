@@ -8,6 +8,7 @@ const db = knex({
     user: "postgres",
     password: "Bhavesh03",
     database: "dvdrental",
+    
   },
 });
 
