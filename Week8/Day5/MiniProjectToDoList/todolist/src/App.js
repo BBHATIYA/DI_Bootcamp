@@ -18,8 +18,10 @@ class App extends React.Component {
     }
   };
 
-  handleClick = (e) => {
-    e.target.remove();
+  handleClick = (i) => {
+    // e.target.remove();
+    this.state.taskList.splice(i, 1);
+    this.setState({ taskList: [...this.state.taskList] });
   };
 
   render() {
@@ -28,13 +30,20 @@ class App extends React.Component {
         <header className="App-header">
           <h1>Todo's</h1>
           <br></br>
-          {this.state.taskList.map((item, i) => {
-            return (
-              <li className="liList" onClick={this.handleClick} key={i}>
-                {item.task}
-              </li>
-            );
-          })}
+
+          {this.state.taskList.length > 0
+            ? this.state.taskList.map((item, i) => {
+                return (
+                  <li
+                    className="liList"
+                    onClick={() => this.handleClick(i)}
+                    key={i}
+                  >
+                    {item.task}
+                  </li>
+                );
+              })
+            : "nothing to do"}
 
           <br></br>
           <input onKeyDown={this.handleKeyDown} type="text"></input>
