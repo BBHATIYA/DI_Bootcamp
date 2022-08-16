@@ -13,3 +13,5 @@ export const reducer = (state = initState, action) => {
   }
   // we export the reducer, and return a cloned state with new key / values that we can later use
 };
+
+
