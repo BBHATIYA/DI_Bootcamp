@@ -3,30 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createStore, applyMiddleware } from "redux";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
-
+import { reducer } from "./redusers/index";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
-
-import { reducer } from "./redux/reducer";
-
-// action => middleware => reducer
-export const mylogger = (store) => (next) => (action) => {
-  // console.log("store=>", store);
-  // store.dispatch({
-  //   type: "MOVIE_DETAIL",
-  //   payload: {
-  //     title: "Spider-Man: Homecoming",
-  //     releaseDate: "05-07-2017",
-  //     rating: 7.4,
-  //   },
-  // });
-  console.log("prev state=>", store.getState());
-  console.log("action=>", action);
-  next(action);
-  console.log("next state=>", store.getState());
-};
+import thunk from "redux-thunk";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

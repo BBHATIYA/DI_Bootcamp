@@ -1,4 +1,4 @@
-import { MOVIE_DETAIL } from "./actions";
+import { MOVIE_DETAIL, GET_USERS, SEARCH_USER } from "./actions";
 
 const initState = {
   movies: [
@@ -13,14 +13,33 @@ const initState = {
     },
   ],
   movie: {},
+  users: [],
+  filter: [],
 };
 
 export const reducer = (state = initState, action = {}) => {
   switch (action.type) {
     case MOVIE_DETAIL:
       return { ...state, movie: action.payload };
+    case GET_USERS:
+      return { ...state, users: action.payload, filter: action.payload };
+    case SEARCH_USER:
+      const filter = state.users.filter((item) => {
+        return item.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return { ...state, filter: filter };
 
     default:
       return { ...state };
   }
 };
+
+// export const reducer2 = (state = initState, action = {}) => {
+//   switch (action.type) {
+//     case USERS:
+//       return { ...state, users: action.state };
+
+//     default:
+//       return { ...state };
+//   }
+// };
