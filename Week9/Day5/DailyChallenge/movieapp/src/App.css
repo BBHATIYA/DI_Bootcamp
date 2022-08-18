@@ -1,0 +1,229 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+
+  text-align: left;
+
+  background-color: white;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-Footer {
+
+  margin-top: 4vh;
+
+  text-align: left;
+
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.searching-form {
+
+  color: black;
+
+  height: 32vh;
+  width: 55vw;
+
+  padding: 10px 10px 10px 10px;
+
+  background-color: rgba(224, 224, 224, 0.897);
+
+  margin-top: 4vh;
+  margin-left: 20vw;
+
+}
+
+#search-input {
+
+  width: 50vw;
+
+  padding: 10px 10px 10px 10px;
+
+  border-radius: 10px;
+}
+
+#submit-input {
+
+  margin-top: 2vh;
+
+  padding: 1vh 1vh 1vh 1vh;
+
+  border: none;
+
+  background-color: rgb(43, 43, 255);
+
+  color: white;
+
+  position: relative;
+  left: 45%;
+}
+
+.card {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 60vh;
+  width: 18vw;
+
+  color: whitesmoke;
+  background-color: rgb(90, 83, 83);
+
+}
+
+#movies-container {
+
+  width: 60vw;
+
+  margin-top: 5vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-gap: 3vh;
+
+  position: relative;
+  left: 20vw;
+
+}
+
+#more-details-button {
+  color: white;
+  background-color: rgb(43, 43, 255);
+
+  height: 4vh;
+  width: 15vw;
+
+  position: relative;
+  bottom: 2vh;
+
+  border: none;
+}
+
+#more-details-button:hover {
+
+  background-color: rgb(60, 70, 255);
+
+}
+
+.poster {
+
+  height: 38vh;
+  width: 12vw;
+
+  position: relative;
+  top: 2vh;
+}
+
+#movie-details {
+
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+#movie-poster-img {
+  height: 50vh;
+  width: 16vw;
+
+  position: relative;
+  top: 3vh;
+  left: 1vw;
+}
+
+#movie-poster-div {
+  height: 55vh;
+  width: 18vw;
+  border: 1px solid black;
+}
+
+#movie-container {
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+#about-section {
+
+  margin-top: 5vh;
+
+  background-color: #282c34;
+  color: whitesmoke;
+
+  padding: 2vh 2vh 2vh 2vh;
+
+  border-radius: 4vh;
+}
+
+#movie-search {
+  height: 90vh;
+  width: 60vw;
+}
+
+.movie-detail {
+  text-decoration: none;
+}
+
+.navbar-brand {
+
+  text-decoration: none;
+  color: whitesmoke;
+
+  margin-left: 2vh;
+
+}
+
+#navbar {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 10vh;
+  width: 100vw;
+
+  background-color: #282c34;
+}
