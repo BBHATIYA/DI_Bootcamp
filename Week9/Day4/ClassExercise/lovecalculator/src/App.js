@@ -22,7 +22,7 @@ class App extends React.Component {
         headers: {
           "x-rapidapi-host": "love-calculator.p.rapidapi.com",
           "x-rapidapi-key":
-            "8e714f6b88mshbb20deb3af21b66p17c12cjsnb08e0581e35c",
+            "9a665ac796msh8631d97f450a16fp178355jsn8c2c68c0e7c2",
         },
       }
     )
