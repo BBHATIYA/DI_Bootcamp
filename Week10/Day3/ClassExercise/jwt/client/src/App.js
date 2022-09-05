@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import LoginRegisterForm from "./components/LoginRegisterForm";
+import { useState, createContext } from "react";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import Admin from "./components/Admin";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import "./App.css";
+import { Auth } from "./auth/Auth";
+
+export const AppContext = createContext(null);
 
 function App() {
+  const [accessToken, setAccessToken] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{ accessToken, setAccessToken }}>
+      <div className="App">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/admin"
+            element={
+              <Auth>
+                <Admin />
+              </Auth>
+            }
+          />
+          <Route
+            path="/login"
+            element={<LoginRegisterForm title={"login"} />}
+          />
+          <Route
+            path="/register"
+            element={<LoginRegisterForm title={"register"} />}
+          />
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 }
 

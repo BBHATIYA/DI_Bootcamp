@@ -1,29 +1,26 @@
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import db from "./config/Database.js";
 import dotenv from "dotenv";
-import jwt from "jsonwebtoken";
+import router from "./routes/Users.js";
 
-const accessToken = jwt.sign(
-  { userid: 123, email: "bhavesh@gmail.com" },
-  "Bhavesh123456",
-  { expiresIn: "20s" }
+dotenv.config();
+
+const app = express();
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(router);
+
+app.listen(process.env.PORT, () =>
+  console.log(`Server run on port ${process.env.PORT}`)
 );
 
-console.log(accessToken);
-
-// const someToken =
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-
-const id = setInterval(() => {
-  jwt.verify(accessToken, "Bhavesh123456", (err, decoded) => {
-    if (err) {
-      console.log("not authorized");
-      clearInterval(id);
-      return;
-    }
-    // console.log("decoded=>", decoded);
-    // const id = decoded.userid;
-    // const e = decoded.email;
-    // console.log(e, id);
-    console.log("authorized hoooo!!!");
-  });
-}, 5 * 1000);
+try {
+  await db.authenticate();
+  console.log("Database connected....");
+} catch (error) {
+  console.log(error);
+}
